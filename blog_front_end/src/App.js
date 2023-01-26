@@ -4,8 +4,11 @@ import Home from './components/home/Home';
 import Blogs from './components/Blogs';
 import Dashboard from './components/Dashboard/Dashboard';
 import NavBar from './components/nav/NavBar';
+import { useState } from 'react';
 
 export default function App() {
+  const [userCredentials, setUserCredentials] = useState({});
+
   return (
     <BrowserRouter>
       <Routes>
@@ -32,7 +35,10 @@ export default function App() {
           element={
             <div>
               <NavBar />
-              <Dashboard />
+              <Dashboard
+                userCredentials={userCredentials}
+                setUserCredentials={setUserCredentials}
+              />
             </div>
           }
         ></Route>

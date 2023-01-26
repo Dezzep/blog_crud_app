@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import Login from './Login';
 
 import getData from '../requests/getAllBlogs';
 import BlogCard from './BlogCard';
@@ -25,7 +24,6 @@ const Blogs = () => {
             Welcome back {userCredentials[0].username}
           </h1>
         )}
-        <Login setUserCredentials={setUserCredentials} />
         <h1 className="text-6xl">
           Welcome to blog nation, the place where we blog
         </h1>

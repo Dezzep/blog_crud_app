@@ -51,12 +51,14 @@ export default function NavBar() {
       <div className="sticky top-0 z-50">
         <div className="py-4 fixed w-full top-0 bg-base-100 ">
           <div className="relative container flex justify-between  mx-auto px-4 lg:px-8  w-full">
-            <a
-              href="/"
-              className="btn btn-ghost normal-case text-3xl flex items-center  font-bold"
+            <Link
+              key="antiBlog"
+              to="/"
+              className="btn btn-ghost normal-case text-3xl flex items-center  font-bold  hover:text-blue-400"
             >
               Anti Blog.
-            </a>
+            </Link>
+
             <div className="flex space-x-12 items-center">
               <div className="hidden lg:flex gap-8 sm:gap-12 items-center list-none">
                 {links.map((link) => (
