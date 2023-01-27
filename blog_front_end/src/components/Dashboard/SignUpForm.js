@@ -1,7 +1,7 @@
 import { useState } from 'react';
-
+import userCreate from '../../requests/userCreate';
+import checkUser from '../../requests/checkUser';
 import SignUpToggle from './SignUpToggle';
-
 const SignUpForm = ({ setSignUp, signUp }) => {
   const [signUpUsername, setSignUpUsername] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
@@ -19,6 +19,75 @@ const SignUpForm = ({ setSignUp, signUp }) => {
   const [buttonText, setButtonText] = useState('Sign Up');
   const [buttonBackground, setButtonBackground] = useState('btn-success');
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const resetButton = () => {
+      setTimeout(() => {
+        setButtonText('Sign Up');
+        setButtonBackground('btn-success');
+      }, 3000);
+    };
+
+    let keepGoing = true;
+    const setError = (checkValue, set) => {
+      if (checkValue === '') {
+        set('input-error');
+        setButtonText('Please fill out all fields');
+        setButtonBackground('btn-error');
+
+        keepGoing = false;
+      } else {
+      }
+    };
+    setError(signUpUsername, setBackgroundUsername);
+    setError(signUpPassword, setBackgroundPassword);
+    setError(signUpConfirmPassword, setBackgroundPassword);
+    setError(signUpEmail, setBackgroundEmail);
+    setError(signUpFirstName, setBackgroundFirstName);
+    setError(signUpLastName, setBackgroundLastName);
+    if (!keepGoing) {
+      resetButton();
+      return;
+    }
+
+    if (signUpPassword !== signUpConfirmPassword) {
+      setBackgroundPassword('input-error');
+      setButtonText('Passwords do not match');
+      setButtonBackground('btn-error');
+      resetButton();
+      return;
+    }
+    const userValid = await checkUser(signUpUsername);
+
+    if (!userValid) {
+      setBackgroundUsername('input-error');
+      setButtonText('Username already exists');
+      setButtonBackground('btn-error');
+      resetButton();
+      return;
+    } else {
+      console.log('success!');
+    }
+
+    // x = await userCreate(
+    //   signUpUsername,
+    //   signUpPassword,
+    //   signUpEmail,
+    //   signUpFirstName,
+    //   signUpLastName
+    // );
+    // if (x) {
+    //   console.log(x);
+    //   setButtonText('Success!');
+    //   setButtonBackground('btn-success');
+    //   resetButton();
+    // } else {
+    //   setButtonText('Error');
+    //   setButtonBackground('btn-error');
+    //   resetButton();
+    // }
+  };
   return (
     <form className="form-control w-64 sm:w-96">
       <SignUpToggle setSignUp={setSignUp} signUp={signUp} />
@@ -34,6 +103,7 @@ const SignUpForm = ({ setSignUp, signUp }) => {
         value={signUpFirstName}
         onChange={(e) => {
           setSignUpFirstName(e.target.value);
+          setBackgroundFirstName('input-primary');
         }}
       />
       <label className="label" htmlFor="lastname">
@@ -47,6 +117,7 @@ const SignUpForm = ({ setSignUp, signUp }) => {
         value={signUpLastName}
         onChange={(e) => {
           setSignUpLastName(e.target.value);
+          setBackgroundLastName('input-primary');
         }}
       />
 
@@ -61,6 +132,7 @@ const SignUpForm = ({ setSignUp, signUp }) => {
         value={signUpUsername}
         onChange={(e) => {
           setSignUpUsername(e.target.value);
+          setBackgroundUsername('input-primary');
         }}
       />
       <label className="label" htmlFor="email">
@@ -74,6 +146,7 @@ const SignUpForm = ({ setSignUp, signUp }) => {
         value={signUpEmail}
         onChange={(e) => {
           setSignUpEmail(e.target.value);
+          setBackgroundEmail('input-primary');
         }}
       />
       <label className="label" htmlFor="signuppassword">
@@ -87,6 +160,7 @@ const SignUpForm = ({ setSignUp, signUp }) => {
         value={signUpPassword}
         onChange={(e) => {
           setSignUpPassword(e.target.value);
+          setBackgroundPassword('input-primary');
         }}
       />
       <label className="label" htmlFor="signupconfirm">
@@ -100,20 +174,15 @@ const SignUpForm = ({ setSignUp, signUp }) => {
         value={signUpConfirmPassword}
         onChange={(e) => {
           setSignUpConfirmPassword(e.target.value);
+          setBackgroundPassword('input-primary');
         }}
       />
       <button
         className={`btn ${buttonBackground} btn-md mt-8 rounded-md `}
         type="submit"
-        onClick={async (e) => {
-          e.preventDefault();
-          try {
-          } catch (error) {
-            console.log(error);
-          }
-        }}
+        onClick={(e) => handleSubmit(e)}
       >
-        Sign Up
+        {buttonText}
       </button>
     </form>
   );
