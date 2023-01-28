@@ -18,9 +18,11 @@ const Dashboard = ({ setUserCredentials, userCredentials }) => {
   }, [render]);
 
   const handleDelete = async (id) => {
-    console.log('delete');
     console.log(await deleteBlog(id));
 
+    setRender(render + 1);
+  };
+  const handleEdit = async () => {
     setRender(render + 1);
   };
 
@@ -28,7 +30,17 @@ const Dashboard = ({ setUserCredentials, userCredentials }) => {
     <div className="mt-24">
       {Object.keys(userCredentials).length > 0 ? (
         <div>
-          Welcome, {userCredentials[0].username}
+          <div className="flex flex-col items-end mr-12 gap-4">
+            <h2 className="text-xl">Welcome, {userCredentials[0].username}</h2>
+            <button
+              onClick={() => {
+                setUserCredentials({});
+              }}
+              className="btn btn-sm btn-error"
+            >
+              Logout
+            </button>
+          </div>
           <BlogCreate
             userCredentials={userCredentials}
             setRender={setRender}
@@ -46,6 +58,7 @@ const Dashboard = ({ setUserCredentials, userCredentials }) => {
                     category={blog.category_name}
                     editable={userCredentials[0].username}
                     handleDelete={handleDelete}
+                    handleEdit={handleEdit}
                   />
                 ) : null}
               </div>
