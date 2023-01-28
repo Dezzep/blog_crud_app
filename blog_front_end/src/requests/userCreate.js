@@ -9,29 +9,17 @@ async function userLogin(username, password, email, firstname, lastname) {
     lastname: lastname,
   };
 
+  console.log(data);
   const config = {
     method: 'post',
-    url: `http://localhost:/PHP_REST_MYBLOG/api/user/read_single.php?username=${username}`,
+    data: data,
+    url: 'http://localhost:/PHP_REST_MYBLOG/api/user/create.php',
   };
-
-  axios(config)
-    .then(async (response) => {
-      console.log(response.data);
-      return await response.data;
-    })
-    .catch((error) => console.log(error));
-
-  console.log('a?');
-
-  // try {
-  //   console.log('a');
-  //   const response = axios.post(
-  //     `http://localhost/PHP_REST_MYBLOG/api/user/create.php?username=${username}&password=${password}&email=${email}&firstname=${firstname}&lastname=${lastname}`
-  //   );
-  //   return await response;
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    const response = await axios(config);
+    return response.data;
+  } catch (error) {
+    return 0;
+  }
 }
-
 export default userLogin;

@@ -13,12 +13,11 @@ const Blogs = () => {
     };
     getAllBlogs();
   }, []);
-
-  console.log(userCredentials);
+  console.log(blogs);
 
   return (
     <div>
-      <div className="flex flex-col gap-6 px-12">
+      <div className="flex flex-wrap gap-6 px-8">
         {userCredentials.length === 0 ? null : (
           <h1 className="text-4xl">
             Welcome back {userCredentials[0].username}
