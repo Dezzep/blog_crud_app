@@ -13,19 +13,16 @@ const Blogs = () => {
     };
     getAllBlogs();
   }, []);
-  console.log(blogs);
 
   return (
     <div>
-      <div className="flex flex-wrap gap-6 px-8">
-        {userCredentials.length === 0 ? null : (
-          <h1 className="text-4xl">
-            Welcome back {userCredentials[0].username}
+      <div className="flex flex-wrap gap-6 px-8 mt-36">
+        <div className="p-2 sm:p-12 w-screen">
+          <h1 className="text-4xl mb-12  leading-relaxed">
+            <span className="text-6xl">The Anti Blog</span> <br /> where you can
+            read about anything <br /> and none of it matters
           </h1>
-        )}
-        <h1 className="text-6xl">
-          Welcome to blog nation, the place where we blog
-        </h1>
+        </div>
         {blogs.map((blog) => (
           <BlogCard
             key={blog.id}

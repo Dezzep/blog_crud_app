@@ -111,6 +111,7 @@ const SignUpForm = ({ setSignUp, signUp, setUserCredentials }) => {
             First Name
           </label>
           <input
+            autoFocus
             className={`input ${backgroundFirstName} input-md rounded-md`}
             type="text"
             name="username"

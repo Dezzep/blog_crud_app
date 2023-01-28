@@ -25,6 +25,13 @@ const BlogCreate = ({ userCredentials, render, setRender }) => {
     }
   };
 
+  const handleCancel = () => {
+    setBlogTitle('');
+    setBlogContent('');
+    setSelection('Select Your Blogs Category');
+    setCreateNewBlog(false);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const category_id = determineCategory(selection);
@@ -70,16 +77,18 @@ const BlogCreate = ({ userCredentials, render, setRender }) => {
   return (
     <div>
       {!createNewBlog ? (
-        <button
-          className="btn btn-primary"
-          onClick={() => {
-            setCreateNewBlog(true);
-          }}
-        >
-          Create a new blog post
-        </button>
+        <div className="flex mb-12 mt-12">
+          <button
+            className="btn btn-primary mx-auto"
+            onClick={() => {
+              setCreateNewBlog(true);
+            }}
+          >
+            Create a new blog post
+          </button>
+        </div>
       ) : (
-        <div className="form-control mt-24 md:w-3/4 mx-auto  bg-base-200 p-12 max-w-6xl">
+        <div className="form-control mt-6 md:w-3/4 mx-auto  bg-base-200 p-12 max-w-6xl">
           <h1 className="text-center text-primary-content text-3xl">
             Create Your Blog
           </h1>
@@ -90,6 +99,7 @@ const BlogCreate = ({ userCredentials, render, setRender }) => {
             onChange={(e) => {
               setBlogTitle(e.target.value);
             }}
+            autoFocus
             className="input input-primary max-w-sm"
             type="text"
             name="blog_title"
@@ -135,6 +145,12 @@ const BlogCreate = ({ userCredentials, render, setRender }) => {
             }}
           >
             {buttonText}
+          </button>
+          <button
+            onClick={() => handleCancel()}
+            className="w-48 ml-auto  btn btn-error mt-6"
+          >
+            Cancel
           </button>
         </div>
       )}

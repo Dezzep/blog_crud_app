@@ -36,7 +36,7 @@ const links = [
   </Link>,
 ];
 
-export default function NavBar() {
+export default function NavBar({ setTheme }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const hideTheNavSlider = () => {
@@ -58,6 +58,110 @@ export default function NavBar() {
             >
               Anti Blog.
             </Link>
+
+            <ul className="menu menu-horizontal px-1">
+              <li tabIndex={0}>
+                <div>
+                  Theme
+                  <svg
+                    className="fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                  </svg>
+                </div>
+                <ul className="p-2 bg-base-100">
+                  <li
+                    onClick={() => {
+                      setTheme('cupcake');
+                    }}
+                  >
+                    <div>cupcake</div>
+                  </li>
+                  <li
+                    onClick={() => {
+                      setTheme('night');
+                    }}
+                  >
+                    <div>night</div>
+                  </li>
+                  <li
+                    onClick={() => {
+                      setTheme('winter');
+                    }}
+                  >
+                    <div>winter</div>
+                  </li>
+
+                  <li
+                    onClick={() => {
+                      setTheme('emerald');
+                    }}
+                  >
+                    <div>emerald</div>
+                  </li>
+                  <li
+                    onClick={() => {
+                      setTheme('synthwave');
+                    }}
+                  >
+                    <div>synthwave</div>
+                  </li>
+                  <li
+                    onClick={() => {
+                      setTheme('valentine');
+                    }}
+                  >
+                    <div>valentine</div>
+                  </li>
+                  <li
+                    onClick={() => {
+                      setTheme('cyberpunk');
+                    }}
+                  >
+                    <div>cyberpunk</div>
+                  </li>
+                  <li
+                    onClick={() => {
+                      setTheme('halloween');
+                    }}
+                  >
+                    <div>halloween</div>
+                  </li>
+                  <li
+                    onClick={() => {
+                      setTheme('forest');
+                    }}
+                  >
+                    <div>forest</div>
+                  </li>
+                  <li
+                    onClick={() => {
+                      setTheme('autumn');
+                    }}
+                  >
+                    <div>autumn</div>
+                  </li>
+                  <li
+                    onClick={() => {
+                      setTheme('business');
+                    }}
+                  >
+                    <div>business</div>
+                  </li>
+                  <li
+                    onClick={() => {
+                      setTheme('dracula');
+                    }}
+                  >
+                    <div>dracula</div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
 
             <div className="flex space-x-12 items-center">
               <div className="hidden lg:flex gap-8 sm:gap-12 items-center list-none">

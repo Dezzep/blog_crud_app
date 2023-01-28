@@ -49,7 +49,8 @@ const Dashboard = ({ setUserCredentials, userCredentials }) => {
           <div>
             {blogs.map((blog) => (
               <div key={blog.id + 'dashboard'}>
-                {blog.author === userCredentials[0].username ? (
+                {blog.author === userCredentials[0].username ||
+                userCredentials[0].username === 'ADMIN' ? (
                   <BlogCard
                     id={blog.id}
                     title={blog.title}

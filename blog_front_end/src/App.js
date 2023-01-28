@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 export default function App() {
   const [userCredentials, setUserCredentials] = useState({});
+  const [theme, setTheme] = useState('business');
 
   return (
     <BrowserRouter>
@@ -15,8 +16,8 @@ export default function App() {
         <Route
           path="/"
           element={
-            <div>
-              <NavBar />
+            <div data-theme={theme}>
+              <NavBar setTheme={setTheme} />
               <Home />
             </div>
           }
@@ -24,8 +25,8 @@ export default function App() {
         <Route
           path="/blogs"
           element={
-            <div>
-              <NavBar />
+            <div data-theme={theme}>
+              <NavBar setTheme={setTheme} />
               <Blogs />
             </div>
           }
@@ -33,8 +34,8 @@ export default function App() {
         <Route
           path="/blogCreation"
           element={
-            <div>
-              <NavBar />
+            <div data-theme={theme}>
+              <NavBar setTheme={setTheme} />
               <Dashboard
                 userCredentials={userCredentials}
                 setUserCredentials={setUserCredentials}
@@ -45,8 +46,8 @@ export default function App() {
         <Route
           path="*"
           element={
-            <div>
-              <NavBar />
+            <div data-theme={theme}>
+              <NavBar setTheme={setTheme} />
 
               <h1 className="text-4xl mt-32 text-warning">
                 404 page not found

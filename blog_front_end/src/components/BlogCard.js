@@ -68,11 +68,11 @@ const BlogCard = ({
           </h2>
           <p>{body}</p>
           <div className="card-actions justify-end">
-            <p className="text-primary-content">
+            <p className="text-primary">
               Author: <span className="text-accent text-lg ml-1">{author}</span>
             </p>
           </div>
-          {editable === author ? (
+          {editable === author || editable === 'ADMIN' ? (
             <div className="flex gap-4 mt-12">
               <button
                 className="btn btn-warning w-24"
@@ -82,7 +82,16 @@ const BlogCard = ({
               </button>
               <button
                 className="btn btn-error w-24"
-                onClick={() => handleDelete(id)}
+                onClick={() => {
+                  // show a confirmation dialog using the browser's built in confirm function
+                  // if the user clicks ok, then call the handleDelete function
+                  // if the user clicks cancel, then do nothing
+                  if (
+                    window.confirm('Are you sure you want to delete this blog?')
+                  ) {
+                    handleDelete(id);
+                  }
+                }}
               >
                 Delete
               </button>
@@ -109,6 +118,7 @@ const BlogCard = ({
             onChange={(e) => {
               setBlogTitle(e.target.value);
             }}
+            autoFocus
             className="input input-primary max-w-sm mt-3 ml-2 border-b-0 text-xl"
             type="text"
             name="blog_title"
@@ -116,7 +126,7 @@ const BlogCard = ({
           />
           <textarea
             value={blogContent}
-            className="textarea textarea-primary h-24 ml-2"
+            className="textarea textarea-primary h-48 ml-2"
             name="blog_body"
             placeholder="Your content here..."
             onChange={(e) => {
