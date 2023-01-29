@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import postBlog from '../../../requests/postBlog';
+// import postBlog from '../../../requests/postBlog';
+import { postBlog } from '../../../requests/frontEndTesting';
 const BlogCreate = ({ userCredentials, render, setRender }) => {
   const [createNewBlog, setCreateNewBlog] = useState(false);
   const [selection, setSelection] = useState('Select Your Blogs Category');

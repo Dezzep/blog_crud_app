@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import LoginLoader from './LoginLoader';
-import userCreate from '../../../requests/userCreate';
-import checkUser from '../../../requests/checkUser';
+// import userCreate from '../../../requests/userCreate';
+import { userCreate, checkUser } from '../../../requests/frontEndTesting';
+// import checkUser from '../../../requests/checkUser';
 import SignUpToggle from './SignUpToggle';
 const SignUpForm = ({ setSignUp, signUp, setUserCredentials }) => {
   const [signUpUsername, setSignUpUsername] = useState('');
@@ -60,7 +61,8 @@ const SignUpForm = ({ setSignUp, signUp, setUserCredentials }) => {
       resetButton();
       return;
     }
-    const userValid = await checkUser(signUpUsername);
+    const userValid = checkUser(signUpUsername);
+    console.log(userValid);
 
     if (!userValid) {
       setBackgroundUsername('input-error');

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import editBlog from '../requests/editBlog';
+import { editBlog } from '../requests/frontEndTesting';
 
 const BlogCard = ({
   id,

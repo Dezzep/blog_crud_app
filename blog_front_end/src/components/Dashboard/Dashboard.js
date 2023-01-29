@@ -1,8 +1,9 @@
 import Login from './Login';
 import BlogCreate from './blogCreation/BlogCreate';
-import getData from '../../requests/getAllBlogs';
+// import getData from '../../requests/getAllBlogs';
+import { getData } from '../../requests/frontEndTesting';
 import BlogCard from '../BlogCard';
-import deleteBlog from '../../requests/deleteBlog';
+import { deleteBlog } from '../../requests/frontEndTesting';
 import { useState, useEffect } from 'react';
 
 const Dashboard = ({ setUserCredentials, userCredentials }) => {
@@ -12,7 +13,8 @@ const Dashboard = ({ setUserCredentials, userCredentials }) => {
   useEffect(() => {
     const getAllBlogs = async () => {
       const blogsFromServer = await getData();
-      setBlog(blogsFromServer);
+      const x = [...blogsFromServer].reverse();
+      setBlog(x);
     };
     getAllBlogs();
   }, [render]);
@@ -56,7 +58,7 @@ const Dashboard = ({ setUserCredentials, userCredentials }) => {
                     title={blog.title}
                     body={blog.body}
                     author={blog.author}
-                    category={blog.category_name}
+                    category={blog.category}
                     editable={userCredentials[0].username}
                     handleDelete={handleDelete}
                     handleEdit={handleEdit}

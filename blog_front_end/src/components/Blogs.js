@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import getData from '../requests/getAllBlogs';
+// import getData from '../requests/getAllBlogs';
+import { getData } from '../requests/frontEndTesting';
 import BlogCard from './BlogCard';
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -9,11 +10,13 @@ const Blogs = () => {
   useEffect(() => {
     const getAllBlogs = async () => {
       const blogsFromServer = await getData();
-      setBlogs(blogsFromServer);
+      const x = [...blogsFromServer].reverse();
+      setBlogs(x);
     };
     getAllBlogs();
   }, []);
 
+  console.log(blogs);
   return (
     <div>
       <div className="flex flex-wrap gap-6 px-8 mt-36">
@@ -29,7 +32,7 @@ const Blogs = () => {
             title={blog.title}
             body={blog.body}
             author={blog.author}
-            category={blog.category_name}
+            category={blog.category}
           />
         ))}
       </div>
