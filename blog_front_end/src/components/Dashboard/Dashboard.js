@@ -29,11 +29,11 @@ const Dashboard = ({ setUserCredentials, userCredentials }) => {
   };
 
   return (
-    <div className="mt-24">
+    <div className="mt-20 min-h-screen">
       {Object.keys(userCredentials).length > 0 ? (
         <div>
-          <div className="flex flex-col items-end mr-12 gap-4">
-            <h2 className="text-xl">Welcome, {userCredentials[0].username}</h2>
+          <div className="flex flex-col items-end mr-6 pb-6 sm:mr-32 sm:h-32 sm:mt-32 gap-4">
+            <h2 className=" text-xl">Welcome, {userCredentials[0].username}</h2>
             <button
               onClick={() => {
                 setUserCredentials({});

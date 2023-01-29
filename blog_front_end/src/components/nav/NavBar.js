@@ -3,26 +3,10 @@ import { Link } from 'react-router-dom';
 import Slider from './Slider.js';
 
 const links = [
-  <a
-    key="home"
-    id="home"
-    href="#home"
-    className="text-xl text-slate-200 justify-center py-4 lg:py-auto  px-4 lg:px-auto w-full lg:w-auto  lg:hover:text-slate-50 flex items-center gap-2 tracking-wider  "
-  >
-    Home
-  </a>,
-  <a
-    key="skills"
-    id="skills"
-    href="#skills"
-    className=" text-xl text-slate-200 justify-center py-4 lg:py-auto px-4 lg:px-auto w-full lg:w-auto  lg:hover:text-slate-50 flex items-center gap-2 tracking-wider  "
-  >
-    About
-  </a>,
   <Link
     key="blogs"
     to="/blogs"
-    className="btn btn-ghost normal-case w-full hover:text-blue-400"
+    className="btn btn-ghost normal-case w-full hover:text-blue-400 text-xl"
   >
     Blogs
   </Link>,
@@ -30,7 +14,7 @@ const links = [
   <Link
     key="blogCreation"
     to="/blogCreation"
-    className="btn btn-ghost normal-case w-full hover:text-blue-400"
+    className="btn btn-ghost normal-case w-full hover:text-blue-400 text-xl"
   >
     Create Blog
   </Link>,
@@ -59,7 +43,7 @@ export default function NavBar({ setTheme }) {
               Anti Blog.
             </Link>
 
-            <ul className="menu menu-horizontal px-1">
+            <ul className="menu menu-horizontal px-1 ml-auto">
               <li tabIndex={0}>
                 <div>
                   Theme
@@ -175,7 +159,7 @@ export default function NavBar({ setTheme }) {
                 ))}
               </div>
               {!isOpen ? (
-                <div className="flex text-white justify-end ml-auto lg:hidden">
+                <div className="flex text-primary justify-end ml-auto lg:hidden">
                   <label onClick={showTheNavSlider}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -196,7 +180,7 @@ export default function NavBar({ setTheme }) {
                 <div className="flex justify-end ml-auto lg:hidden text-white">
                   <label onClick={hideTheNavSlider}>
                     <svg
-                      className=" h-8 w-8 text-primary-content cursor-pointer"
+                      className=" h-8 w-8 text-primary cursor-pointer"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"

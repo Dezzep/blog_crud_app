@@ -28,8 +28,20 @@ const accounts = [
 // author,
 // category,
 const blogdata = [
-  { id: 1, title: 'test', body: 'test', author: 'test', category: 'test' },
-  { id: 2, title: 'test2', body: 'test2', author: 'test2', category: 'test2' },
+  {
+    id: 1,
+    title: 'Susans Story',
+    body: "I'm Susan, and I like to blog. I started blogging at 4 years old when I figured out how to spell my name. Everyone in class loved my blog. I was the most popular girl in school. Now I'm taking my blog to the real world. So here I am world! Welcome to my first blog post. Hopefully I end up famous because of this haha! See you next time",
+    author: 'SusanOfcourse',
+    category: 'Entertainment',
+  },
+  {
+    id: 2,
+    title: 'Bliffs Bloff',
+    body: "Hey bliffers, it's Block, and I'm here to tell you about this cool new site. It's called the anti blog or whatever.. and you're actually on it right now! VERY COOL STUFF. It has a bunch of features. There's a cool theme picker, it's safe against SQL injection (hopefully) and anyone can create an account and start writing today! HOPEFULLY YOU DON'T REALIZE THAT TO LOGIN AS ADMIN you just need to type ---- username: ADMIN, password: password ---- I hope no one actually tries this. It would suck if someone figured that out and was able to delete and edit any blog..",
+    author: 'Block',
+    category: 'Secret Knowledge',
+  },
 ];
 
 function checkUser(user) {
