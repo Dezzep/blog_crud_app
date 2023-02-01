@@ -1,15 +1,16 @@
 import axios from 'axios';
+var Hashes = require('jshashes');
+var MD5 = new Hashes.MD5();
 
 async function userLogin(username, password, email, firstname, lastname) {
   const data = {
     username: username,
-    password: password,
+    password: MD5.hex(password),
     email: email,
     firstname: firstname,
     lastname: lastname,
   };
 
-  console.log(data);
   const config = {
     method: 'post',
     data: data,

@@ -62,7 +62,7 @@ const BlogCard = ({
     <div className="card max-w-4xl bg-base-200 p-16 shadow-xl mx-auto border-base-100  hover:border-primary-focus border-2 mt-4">
       {!edit ? (
         <div className="card-body">
-          <p className="badge badge-primary mb-4">{category}</p>
+          <p className="badge badge-primary mb-4 max-h-6">{category}</p>
           <h2 className="card-title text-2xl underline underline-offset-8">
             {title.replace(/&quot;/g, '"').replace(/&#039;/g, "'")}
           </h2>

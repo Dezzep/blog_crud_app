@@ -3,26 +3,10 @@ import { Link } from 'react-router-dom';
 import Slider from './Slider.js';
 
 const links = [
-  <a
-    key="home"
-    id="home"
-    href="#home"
-    className="text-xl text-slate-200 justify-center py-4 lg:py-auto  px-4 lg:px-auto w-full lg:w-auto  lg:hover:text-slate-50 flex items-center gap-2 tracking-wider  "
-  >
-    Home
-  </a>,
-  <a
-    key="skills"
-    id="skills"
-    href="#skills"
-    className=" text-xl text-slate-200 justify-center py-4 lg:py-auto px-4 lg:px-auto w-full lg:w-auto  lg:hover:text-slate-50 flex items-center gap-2 tracking-wider  "
-  >
-    About
-  </a>,
   <Link
     key="blogs"
     to="/blogs"
-    className="btn btn-ghost normal-case w-full hover:text-blue-400"
+    className="btn btn-ghost normal-case w-full hover:text-blue-400 text-lg"
   >
     Blogs
   </Link>,
@@ -30,7 +14,7 @@ const links = [
   <Link
     key="blogCreation"
     to="/blogCreation"
-    className="btn btn-ghost normal-case w-full hover:text-blue-400"
+    className="btn btn-ghost normal-case w-full hover:text-blue-400 text-lg"
   >
     Create Blog
   </Link>,
@@ -59,7 +43,7 @@ export default function NavBar({ setTheme }) {
               Anti Blog.
             </Link>
 
-            <ul className="menu menu-horizontal px-1">
+            <ul className="menu menu-horizontal px-1 ml-auto pr-6">
               <li tabIndex={0}>
                 <div>
                   Theme

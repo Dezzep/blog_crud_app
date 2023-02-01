@@ -16,7 +16,7 @@ const Blogs = () => {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-6 px-8 mt-36">
+      <div className="flex flex-wrap gap-6 px-8 pt-36">
         <div className="p-2 sm:p-12 w-screen">
           <h1 className="text-4xl mb-12  leading-relaxed">
             <span className="text-6xl">The Anti Blog</span> <br /> where you can
