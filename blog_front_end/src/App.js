@@ -8,7 +8,9 @@ import { useState } from 'react';
 
 export default function App() {
   const [userCredentials, setUserCredentials] = useState({});
-  const [theme, setTheme] = useState('business');
+  const [theme, setTheme] = useState(
+    localStorage.getItem('theme') || 'business'
+  );
 
   return (
     <BrowserRouter>

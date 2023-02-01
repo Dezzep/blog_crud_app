@@ -133,7 +133,7 @@ const BlogCard = ({
               setBlogContent(e.target.value);
             }}
           ></textarea>
-          <div className="flex ml-2 gap-6 mt-4">
+          <div className="flex flex-col sm:flex-row ml-2 gap-6 mt-4">
             <button
               className={`btn ${buttonBackground}`}
               onClick={async () => {

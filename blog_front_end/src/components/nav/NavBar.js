@@ -38,7 +38,7 @@ export default function NavBar({ setTheme }) {
             <Link
               key="antiBlog"
               to="/"
-              className="btn btn-ghost normal-case text-3xl flex items-center  font-bold  hover:text-blue-400"
+              className="btn btn-ghost normal-case sm:text-3xl flex items-center  font-bold  hover:text-blue-400"
             >
               Anti Blog.
             </Link>
@@ -57,10 +57,11 @@ export default function NavBar({ setTheme }) {
                     <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                   </svg>
                 </div>
-                <ul className="p-2 bg-base-100">
+                <ul className="p-2 bg-base-100 overflow-y-scroll max-h-64">
                   <li
                     onClick={() => {
                       setTheme('cupcake');
+                      localStorage.setItem('theme', 'cupcake');
                     }}
                   >
                     <div>cupcake</div>
@@ -68,6 +69,7 @@ export default function NavBar({ setTheme }) {
                   <li
                     onClick={() => {
                       setTheme('night');
+                      localStorage.setItem('theme', 'night');
                     }}
                   >
                     <div>night</div>
@@ -75,6 +77,7 @@ export default function NavBar({ setTheme }) {
                   <li
                     onClick={() => {
                       setTheme('winter');
+                      localStorage.setItem('theme', 'winter');
                     }}
                   >
                     <div>winter</div>
@@ -83,6 +86,7 @@ export default function NavBar({ setTheme }) {
                   <li
                     onClick={() => {
                       setTheme('emerald');
+                      localStorage.setItem('theme', 'emerald');
                     }}
                   >
                     <div>emerald</div>
@@ -90,6 +94,7 @@ export default function NavBar({ setTheme }) {
                   <li
                     onClick={() => {
                       setTheme('synthwave');
+                      localStorage.setItem('theme', 'synthwave');
                     }}
                   >
                     <div>synthwave</div>
@@ -97,6 +102,7 @@ export default function NavBar({ setTheme }) {
                   <li
                     onClick={() => {
                       setTheme('valentine');
+                      localStorage.setItem('theme', 'valentine');
                     }}
                   >
                     <div>valentine</div>
@@ -104,6 +110,7 @@ export default function NavBar({ setTheme }) {
                   <li
                     onClick={() => {
                       setTheme('cyberpunk');
+                      localStorage.setItem('theme', 'cyberpunk');
                     }}
                   >
                     <div>cyberpunk</div>
@@ -111,6 +118,7 @@ export default function NavBar({ setTheme }) {
                   <li
                     onClick={() => {
                       setTheme('halloween');
+                      localStorage.setItem('theme', 'halloween');
                     }}
                   >
                     <div>halloween</div>
@@ -118,6 +126,7 @@ export default function NavBar({ setTheme }) {
                   <li
                     onClick={() => {
                       setTheme('forest');
+                      localStorage.setItem('theme', 'forest');
                     }}
                   >
                     <div>forest</div>
@@ -125,6 +134,7 @@ export default function NavBar({ setTheme }) {
                   <li
                     onClick={() => {
                       setTheme('autumn');
+                      localStorage.setItem('theme', 'autumn');
                     }}
                   >
                     <div>autumn</div>
@@ -132,6 +142,7 @@ export default function NavBar({ setTheme }) {
                   <li
                     onClick={() => {
                       setTheme('business');
+                      localStorage.setItem('theme', 'business');
                     }}
                   >
                     <div>business</div>
@@ -139,6 +150,7 @@ export default function NavBar({ setTheme }) {
                   <li
                     onClick={() => {
                       setTheme('dracula');
+                      localStorage.setItem('theme', 'dracula');
                     }}
                   >
                     <div>dracula</div>
@@ -165,7 +177,7 @@ export default function NavBar({ setTheme }) {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      className="inline-block w-8 h-8 stroke-current cursor-pointer"
+                      className="inline-block w-8 h-8 stroke-current cursor-pointer text-accent"
                     >
                       <path
                         strokeLinecap="round"
@@ -180,7 +192,7 @@ export default function NavBar({ setTheme }) {
                 <div className="flex justify-end ml-auto lg:hidden text-white">
                   <label onClick={hideTheNavSlider}>
                     <svg
-                      className=" h-8 w-8 text-primary-content cursor-pointer"
+                      className=" h-8 w-8 text-accent cursor-pointer"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
