@@ -14,6 +14,20 @@ const Blogs = () => {
     getAllBlogs();
   }, []);
 
+  const filterBlogs = () => {
+    return blogs
+      .filter((blog) => blog.body.toLowerCase().includes(filter.toLowerCase()))
+      .map((blog) => (
+        <BlogCard
+          key={blog.id}
+          title={blog.title}
+          body={blog.body}
+          filter={filter}
+          author={blog.author}
+          category={blog.category_name}
+        />
+      ));
+  };
   return (
     <div>
       <div className="flex flex-wrap gap-6 px-8 pt-36 min-h-screen">
@@ -39,7 +53,8 @@ const Blogs = () => {
           </div>
         </div>
 
-        {blogs
+        {filterBlogs()}
+        {/* {blogs
           .filter((blog) =>
             blog.body.toLowerCase().includes(filter.toLowerCase())
           )
@@ -52,7 +67,7 @@ const Blogs = () => {
               author={blog.author}
               category={blog.category_name}
             />
-          ))}
+          ))} */}
       </div>
     </div>
   );
