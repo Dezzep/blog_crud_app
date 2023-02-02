@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import editBlog from '../requests/editBlog';
+import FilterText from './FilterText';
 
 const BlogCard = ({
   id,
@@ -10,6 +11,7 @@ const BlogCard = ({
   editable,
   handleDelete,
   handleEdit,
+  filter,
 }) => {
   const [edit, setEdit] = useState(false);
   const [selection, setSelection] = useState(category);
@@ -66,7 +68,12 @@ const BlogCard = ({
           <h2 className="card-title text-2xl underline underline-offset-8">
             {title.replace(/&quot;/g, '"').replace(/&#039;/g, "'")}
           </h2>
-          <p>{body}</p>
+          {filter ? (
+            <FilterText body={body} filter={filter}></FilterText>
+          ) : (
+            <p>{body}</p>
+          )}
+
           <div className="card-actions justify-end">
             <p className="text-primary">
               Author: <span className="text-accent text-lg ml-1">{author}</span>
