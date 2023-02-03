@@ -65,10 +65,17 @@ const BlogCard = ({
       {!edit ? (
         <div className="card-body">
           <p className="badge badge-primary mb-4 max-h-6">{category}</p>
-          <h2 className="card-title text-2xl underline underline-offset-8">
-            {title.replace(/&quot;/g, '"').replace(/&#039;/g, "'")}
-          </h2>
-          {filter ? (
+          {title.includes(filter) ? (
+            <h2 className="card-title text-2xl underline underline-offset-8">
+              <FilterText body={title} filter={filter}></FilterText>
+            </h2>
+          ) : (
+            <h2 className="card-title text-2xl underline underline-offset-8">
+              {title.replace(/&quot;/g, '"').replace(/&#039;/g, "'")}
+            </h2>
+          )}
+
+          {body.includes(filter) ? (
             <FilterText body={body} filter={filter}></FilterText>
           ) : (
             <p>{body}</p>

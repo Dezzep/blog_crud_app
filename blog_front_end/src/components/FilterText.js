@@ -7,7 +7,6 @@ const FilterText = ({ body, filter }) => {
       arrayOfText.push({ filter: highlight + ' ' });
 
       arrayOfText.push(rest.join(' '));
-      arrayOfText.push('');
     } else {
       for (let i = 0; i < text.split(filter).length; i++) {
         arrayOfText.push(text.split(filter)[i]);
@@ -28,18 +27,13 @@ const FilterText = ({ body, filter }) => {
             return <span key={text + i}>{text}</span>;
           } else {
             return (
-              <span key={text + i} className="px-[1px] bg-accent/60 ">
+              <span key={text + i} className=" bg-accent/60 ">
                 {text.filter}
               </span>
             );
           }
         })}
       </p>
-      {/* <p className="block">
-        {before}
-        <span className="px-[1px] bg-accent/60 ">{filter}</span>
-        {after}
-      </p> */}
     </div>
   );
 };

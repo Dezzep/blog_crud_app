@@ -4,7 +4,6 @@ import getData from '../requests/getAllBlogs';
 import BlogCard from './BlogCard';
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
-  const [userCredentials, setUserCredentials] = useState('');
   const [filter, setFilter] = useState('');
   useEffect(() => {
     const getAllBlogs = async () => {
@@ -16,7 +15,11 @@ const Blogs = () => {
 
   const filterBlogs = () => {
     return blogs
-      .filter((blog) => blog.body.toLowerCase().includes(filter.toLowerCase()))
+      .filter(
+        (blog) =>
+          blog.title.toLowerCase().includes(filter.toLowerCase()) ||
+          blog.body.toLowerCase().includes(filter.toLowerCase())
+      )
       .map((blog) => (
         <BlogCard
           key={blog.id}
@@ -30,7 +33,7 @@ const Blogs = () => {
   };
   return (
     <div>
-      <div className="flex flex-wrap gap-6 px-8 pt-36 min-h-screen">
+      <div className="flex flex-col px-8 pt-36 min-h-screen">
         <div className="p-2 sm:p-12 w-screen">
           <h1 className="text-4xl mb-12  leading-relaxed">
             <span className="text-6xl">The Anti Blog</span> <br /> where you can
@@ -41,7 +44,7 @@ const Blogs = () => {
               Search
             </label>
             <input
-              className={`input  input-md rounded-md border-info`}
+              className={`input  input-md rounded-md border-info max-w-5xl`}
               type=""
               name="search"
               id="search"
@@ -52,22 +55,7 @@ const Blogs = () => {
             />
           </div>
         </div>
-
-        {filterBlogs()}
-        {/* {blogs
-          .filter((blog) =>
-            blog.body.toLowerCase().includes(filter.toLowerCase())
-          )
-          .map((blog) => (
-            <BlogCard
-              key={blog.id}
-              title={blog.title}
-              body={blog.body}
-              filter={filter}
-              author={blog.author}
-              category={blog.category_name}
-            />
-          ))} */}
+        <div className="flex  flex-wrap">{filterBlogs()}</div>
       </div>
     </div>
   );
