@@ -61,7 +61,7 @@ const BlogCard = ({
   // this is because the API returns the title with these characters in it (to avoid sql injection)
   // and we need to replace them with the actual characters so that the user can see them properly
   return (
-    <div className="card max-w-4xl bg-base-200 p-16 shadow-xl mx-auto border-base-100  hover:border-primary-focus border-2 mt-4">
+    <div className="card max-w-4xl p-8 bg-base-200 sm:p-16 shadow-xl mx-auto border-base-100  hover:border-primary-focus border-2 mt-4">
       {!edit ? (
         <div className="card-body">
           <p className="badge badge-primary mb-4 max-h-6">{category}</p>

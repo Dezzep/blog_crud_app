@@ -166,7 +166,9 @@ const SignUpForm = ({ setSignUp, signUp, setUserCredentials }) => {
               setBackgroundEmail('input-primary');
             }}
           />
-          <p className="bg-info">Emails do not need to be valid</p>
+          <p className="bg-accent text-accent-content text-center mt-1">
+            Email does not need to be valid
+          </p>
 
           <label className="label" htmlFor="signuppassword">
             Password

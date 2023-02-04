@@ -9,7 +9,7 @@ import { useState } from 'react';
 export default function App() {
   const [userCredentials, setUserCredentials] = useState({});
   const [theme, setTheme] = useState(
-    localStorage.getItem('theme') || 'business'
+    localStorage.getItem('theme') || 'synthwave'
   );
 
   return (

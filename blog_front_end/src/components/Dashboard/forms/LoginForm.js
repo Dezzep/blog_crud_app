@@ -9,18 +9,47 @@ const LoginForm = ({ signUp, setSignUp, setUserCredentials }) => {
   const [buttonText, setButtonText] = useState('Login');
   const [testAccount, setTestAccount] = useState(
     <p>
-      Login As Test User
-      <span className="text-xs"> (no account needed)</span>
+      Click Here To Login As Test User.
+      <span className="text-xs"></span>
     </p>
   );
   const [passwordBorderState, setPasswordBorderState] =
     useState('input-primary');
   const [buttonBackground, setButtonBackground] = useState('btn-success');
-  const [testButtonBackground, setTestButtonBackground] = useState('btn-info');
+  const [testButtonBackground, setTestButtonBackground] =
+    useState('btn-accent');
   return (
     <form className="form-control w-64 sm:w-96">
       <SignUpToggle setSignUp={setSignUp} signUp={signUp} />
+      <button
+        className={`mb-6 btn ${testButtonBackground} btn-lg mt-8 rounded-md normal-case`}
+        onClick={async (e) => {
+          e.preventDefault();
+
+          const x = await userLogin('Test_User', 'test');
+          if (x) {
+            setUserCredentials(x);
+          } else {
+            setTestAccount('Error, something went wrong');
+            setUserBorderState('input-error');
+            setPasswordBorderState('input-error');
+            setTestButtonBackground('btn-error');
+            setTimeout(() => {
+              setTestAccount(
+                <p>
+                  Login As Test User
+                  <span className="text-xs"> (no account needed)</span>
+                </p>
+              );
+              setTestButtonBackground('btn-info');
+            }, 3500);
+          }
+        }}
+      >
+        {testAccount}
+      </button>
       <h1 className="text-4xl mb-6">Login</h1>
+
       <label className="label" htmlFor="username">
         Username
       </label>
@@ -75,33 +104,6 @@ const LoginForm = ({ signUp, setSignUp, setUserCredentials }) => {
         }}
       >
         {buttonText}
-      </button>
-      <button
-        className={`btn ${testButtonBackground} btn-md mt-8 rounded-md normal-case`}
-        onClick={async (e) => {
-          e.preventDefault();
-
-          const x = await userLogin('Test_User', 'test');
-          if (x) {
-            setUserCredentials(x);
-          } else {
-            setTestAccount('Error, something went wrong');
-            setUserBorderState('input-error');
-            setPasswordBorderState('input-error');
-            setTestButtonBackground('btn-error');
-            setTimeout(() => {
-              setTestAccount(
-                <p>
-                  Login As Test User
-                  <span className="text-xs"> (no account needed)</span>
-                </p>
-              );
-              setTestButtonBackground('btn-info');
-            }, 3500);
-          }
-        }}
-      >
-        {testAccount}
       </button>
     </form>
   );

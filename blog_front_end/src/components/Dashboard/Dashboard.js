@@ -30,13 +30,13 @@ const Dashboard = ({ setUserCredentials, userCredentials }) => {
     <div className="pt-24 min-h-screen bg-base-300">
       {Object.keys(userCredentials).length > 0 ? (
         <div>
-          <div className="flex flex-col items-end mr-12 gap-4 pt-6">
+          <div className="flex flex-col justify-center text-center gap-4 pt-6">
             <h2 className="text-xl">Welcome, {userCredentials[0].username}</h2>
             <button
               onClick={() => {
                 setUserCredentials({});
               }}
-              className="btn btn-sm btn-error"
+              className="btn btn-sm btn-error w-36 mx-auto"
             >
               Logout
             </button>
