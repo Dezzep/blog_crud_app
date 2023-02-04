@@ -16,12 +16,14 @@ const Blogs = () => {
   const filterBlogs = () => {
     return blogs
       .filter(
-        (blog) => blog.title.includes(filter) || blog.body.includes(filter)
+        (blog) =>
+          blog.title.replace(/&#039;/g, "'").includes(filter) ||
+          blog.body.includes(filter)
       )
       .map((blog) => (
         <BlogCard
           key={blog.id}
-          title={blog.title}
+          title={blog.title.replace(/&#039;/g, "'")}
           body={blog.body}
           filter={filter}
           author={blog.author}
