@@ -132,7 +132,6 @@ const BlogCard = ({
             onChange={(e) => {
               setBlogTitle(e.target.value);
             }}
-            autoFocus
             className="input input-primary max-w-sm mt-3 ml-2 border-b-0 text-xl"
             type="text"
             name="blog_title"

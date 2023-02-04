@@ -96,7 +96,6 @@ const BlogCreate = ({ userCredentials, render, setRender }) => {
             onChange={(e) => {
               setBlogTitle(e.target.value);
             }}
-            autoFocus
             className="input input-primary max-w-sm"
             type="text"
             name="blog_title"

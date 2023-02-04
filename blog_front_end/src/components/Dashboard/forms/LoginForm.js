@@ -25,7 +25,6 @@ const LoginForm = ({ signUp, setSignUp, setUserCredentials }) => {
         Username
       </label>
       <input
-        autoFocus
         className={`input  input-md rounded-md ${userBorderState}`}
         type="text"
         name="username"
