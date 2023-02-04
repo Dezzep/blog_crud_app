@@ -16,9 +16,7 @@ const Blogs = () => {
   const filterBlogs = () => {
     return blogs
       .filter(
-        (blog) =>
-          blog.title.toLowerCase().includes(filter.toLowerCase()) ||
-          blog.body.toLowerCase().includes(filter.toLowerCase())
+        (blog) => blog.title.includes(filter) || blog.body.includes(filter)
       )
       .map((blog) => (
         <BlogCard
@@ -55,7 +53,7 @@ const Blogs = () => {
             />
           </div>
         </div>
-        <div className="flex  flex-wrap">{filterBlogs()}</div>
+        <div className="flex  flex-wrap gap-4">{filterBlogs()}</div>
       </div>
     </div>
   );

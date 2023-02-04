@@ -86,7 +86,7 @@ const BlogCard = ({
               Author: <span className="text-accent text-lg ml-1">{author}</span>
             </p>
           </div>
-          {editable === author || editable === 'ADMIN' ? (
+          {editable === author || editable === 'admin' ? (
             <div className="flex gap-4 mt-12">
               <button
                 className="btn btn-warning w-24"

@@ -1,6 +1,7 @@
 import axios from 'axios';
 var Hashes = require('jshashes');
 var MD5 = new Hashes.MD5();
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 async function userLogin(username, password, email, firstname, lastname) {
   const data = {
@@ -14,7 +15,7 @@ async function userLogin(username, password, email, firstname, lastname) {
   const config = {
     method: 'post',
     data: data,
-    url: 'http://localhost:/PHP_REST_MYBLOG/api/user/create.php',
+    url: `${BASE_URL}user/create.php`,
   };
   try {
     const response = await axios(config);

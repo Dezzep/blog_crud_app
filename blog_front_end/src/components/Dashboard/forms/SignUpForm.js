@@ -151,9 +151,11 @@ const SignUpForm = ({ setSignUp, signUp, setUserCredentials }) => {
               setBackgroundUsername('input-primary');
             }}
           />
+
           <label className="label" htmlFor="email">
             Email
           </label>
+
           <input
             className={`input ${backgroundEmail} input-md rounded-md`}
             type="email"
@@ -165,6 +167,8 @@ const SignUpForm = ({ setSignUp, signUp, setUserCredentials }) => {
               setBackgroundEmail('input-primary');
             }}
           />
+          <p className="bg-info">Emails do not need to be valid</p>
+
           <label className="label" htmlFor="signuppassword">
             Password
           </label>

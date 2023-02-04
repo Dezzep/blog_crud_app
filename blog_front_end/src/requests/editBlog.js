@@ -1,5 +1,7 @@
 // http://localhost/php_rest_myblog/api/post/update.php
 import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const editBlog = async (id, title, body, category, author) => {
   const data = {
     id,
@@ -11,7 +13,7 @@ const editBlog = async (id, title, body, category, author) => {
   const config = {
     method: 'put',
     data: data,
-    url: 'http://localhost/php_rest_myblog/api/post/update.php',
+    url: `${BASE_URL}post/update.php`,
   };
   try {
     const response = await axios(config);

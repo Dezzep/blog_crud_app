@@ -7,7 +7,6 @@ const BlogCreate = ({ userCredentials, render, setRender }) => {
   const [blogContent, setBlogContent] = useState('');
   const [buttonBackground, setButtonBackground] = useState('btn-success');
   const [buttonText, setButtonText] = useState('Create Blog');
-
   const determineCategory = (selection) => {
     switch (selection) {
       case 'Technology':
@@ -89,9 +88,7 @@ const BlogCreate = ({ userCredentials, render, setRender }) => {
         </div>
       ) : (
         <div className="form-control mt-6 md:w-3/4 mx-auto  bg-base-200 p-12 max-w-6xl">
-          <h1 className="text-center text-primary-content text-3xl">
-            Create Your Blog
-          </h1>
+          <h1 className="text-center text-accent text-3xl">Create Your Blog</h1>
           <label className="label" htmlFor="blog_title">
             <span className="label-text text-lg">Title</span>
           </label>
