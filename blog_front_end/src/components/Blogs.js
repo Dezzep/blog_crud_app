@@ -56,7 +56,15 @@ const Blogs = () => {
             />
           </div>
         </div>
-        <div className="flex  flex-wrap gap-4">{filterBlogs()}</div>
+        <div className="flex  flex-wrap gap-4">
+          {filterBlogs().length > 0 ? (
+            filterBlogs()
+          ) : (
+            <p className="text-center w-full text-3xl text-warning-content bg-warning">
+              No blogs found
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
